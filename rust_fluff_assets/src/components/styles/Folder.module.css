@@ -1,0 +1,11 @@
+.folderContainer {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.thumbnail {
+    height: 50px;
+    border-radius: 5px;
+}

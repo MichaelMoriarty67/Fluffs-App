@@ -1,0 +1,23 @@
+.vscode/
+.idea/
+**/*~
+
+# Mac OSX temporary files
+.DS_Store
+**/.DS_Store
+
+# dfx temporary files
+.dfx/
+
+# frontend / js code
+node_modules/
+dist/
+**/package-lock.json
+**/.eslintcache
+**/coverage
+
+# Rust
+target/
+Cargo.lock
+
+todo.txt

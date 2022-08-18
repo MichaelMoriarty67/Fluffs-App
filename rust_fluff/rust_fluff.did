@@ -1,0 +1,50 @@
+type Status = variant {
+    Zero;
+    One;
+    Two;
+    Three;
+    Four;
+    Five;
+    Realm;
+};
+
+type Socials = record {
+    "dscvr": text;
+    "distrikt": text;
+    "discord": text;
+    "twitter": text;
+    "website": text;
+};
+
+type Profile = record {
+    "principal": text;
+    "username": text;
+    "socials": Socials;
+    "nfts": vec NFTRecord;
+    "status": Status;
+};
+
+type ProfileError = variant {
+    UnauthorizedUsername;
+    BadParams;
+    NotFound;
+    Other: text;
+};
+
+type ProfileReceipt = variant {
+    Err: ProfileError;
+    Ok: Profile;
+};
+
+type NFTRecord = record {
+    "colName": text;
+    "colId": text;
+    "tokens": vec text;
+}
+
+service : {
+    "getSelf": () -> (opt Profile) query;
+    "checkUsername": (text) -> (bool) query;
+    "add": (Profile) -> (ProfileReceipt);
+    "get": (text) -> (ProfileReceipt) query;
+}

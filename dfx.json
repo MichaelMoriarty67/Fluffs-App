@@ -1,0 +1,42 @@
+{
+  "canisters": {
+    "rust_fluff": {
+      "build": "node build.js rust_fluff",
+      "candid": "rust_fluff/rust_fluff.did",
+      "wasm": "target/wasm32-unknown-unknown/release/rust_fluff-opt.wasm",
+      "type": "custom"
+    },
+    "rust_fluff_assets": {
+      "dependencies": [
+        "rust_fluff"
+      ],
+      "frontend": {
+        "entrypoint": "rust_fluff_assets/src/index.html"
+      },
+      "source": [
+        "rust_fluff_assets/assets",
+        "dist/"
+      ],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "build": {
+      "packtool": ""
+    }
+  },
+  "dfx": "0.8.1",
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8000",
+      "type": "ephemeral"
+    },
+    "ic": {
+      "providers": [
+        "https://mainnet.dfinity.network"
+      ],
+      "type": "persistent"
+    }
+  },
+  "version": 1
+}
